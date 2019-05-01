@@ -1,18 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>TRIVIA CEUTEC</h1>
+    <div class="question-container">
+      <p v-html="currentQuestion"></p>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import axios from 'axios';
 export default {
   name: 'app',
-  components: {
-    HelloWorld
-  }
+  data() {
+    return {
+      questions: [],
+      currentQuestionNumber: 0,
+      currentUserAnswer: '',
+    };
+  },
+  computed: {
+    currentQuestion() {
+      return this.questions[this.currentQuestionNumber].question;
+    }
+  },
+  mounted() {
+    axios.get('https://opentdb.com/api.php?amount=10&difficulty=medium&type=boolean')
+      .then((result) => {
+        this.questions = result.data.results;
+      });
+  },
 }
 </script>
 
