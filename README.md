@@ -1,5 +1,14 @@
 # trivia-ceutec
 
+
+## Instancia y ciclo de vida de los componentes
+[documentacion](https://vuejs.org/v2/guide/instance.html).
+
+## Reactividad en Vue
+[documentacion](https://vuejs.org/v2/guide/reactivity.html).
+
+
+
 ## Project setup
 ```
 npm install
